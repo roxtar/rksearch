@@ -1,0 +1,36 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RabinKarpSearch", "RabinKarpSearch\RabinKarpSearch.csproj", "{E2AEC2F9-EBCF-4067-9E4C-678321834C08}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RabinKarpSearchTest", "RabinKarpSearchTest\RabinKarpSearchTest.csproj", "{4E194798-7B8F-48AF-A12B-95A38EC18221}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{61DCC576-8554-439A-BB81-95F77CEC40E5}"
+	ProjectSection(SolutionItems) = preProject
+		Local.testsettings = Local.testsettings
+		RabinKarpSearch.vsmdi = RabinKarpSearch.vsmdi
+		TraceAndTestImpact.testsettings = TraceAndTestImpact.testsettings
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(TestCaseManagementSettings) = postSolution
+		CategoryFile = RabinKarpSearch.vsmdi
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E2AEC2F9-EBCF-4067-9E4C-678321834C08}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E2AEC2F9-EBCF-4067-9E4C-678321834C08}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E2AEC2F9-EBCF-4067-9E4C-678321834C08}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E2AEC2F9-EBCF-4067-9E4C-678321834C08}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4E194798-7B8F-48AF-A12B-95A38EC18221}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4E194798-7B8F-48AF-A12B-95A38EC18221}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4E194798-7B8F-48AF-A12B-95A38EC18221}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4E194798-7B8F-48AF-A12B-95A38EC18221}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
