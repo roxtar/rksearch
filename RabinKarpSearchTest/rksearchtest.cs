@@ -45,7 +45,7 @@ namespace RabinKarpSearchTest
 
             // 13 is the  max limit due to size of long
             string sub = src.Substring(900, 23);
-            RkSearch search = new RkSearch(5);
+            RkSearch search = new RkSearch();
             int idx = search.Search(src, sub);
             Assert.IsTrue(idx > 0);
             Assert.IsTrue(idx == 900);

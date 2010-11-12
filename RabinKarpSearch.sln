@@ -8,6 +8,7 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{61DCC576-8554-439A-BB81-95F77CEC40E5}"
 	ProjectSection(SolutionItems) = preProject
 		Local.testsettings = Local.testsettings
+		notes.txt = notes.txt
 		RabinKarpSearch.vsmdi = RabinKarpSearch.vsmdi
 		TraceAndTestImpact.testsettings = TraceAndTestImpact.testsettings
 	EndProjectSection

@@ -19,7 +19,8 @@ namespace RabinKarpSearch
                 {
                     if (src[i + j] != sub[j])
                     {
-                        found = false;                        
+                        found = false;
+                        break;
                     }
                 }
                 if (found)

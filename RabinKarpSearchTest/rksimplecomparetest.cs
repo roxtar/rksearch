@@ -13,7 +13,7 @@ namespace RabinKarpSearchTest
         [TestMethod]
         public void RkSimpleSearchCompareTest()
         {
-            RkSearch rksearch = new RkSearch(5);
+            RkSearch rksearch = new RkSearch();
             SimpleSearch ssearch = new SimpleSearch();
 
             SeqGen gen = new SeqGen();

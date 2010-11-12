@@ -7,17 +7,14 @@ namespace RabinKarpSearch
 {
     public class RkSearchHash
     {
-        int m_base;
+        const int m_base = 4;
+        long[] m_powtables;
 
         public RkSearchHash()
         {
-            m_base = 19;
+                   
         }
-
-        public RkSearchHash(int hashbase)
-        {
-            m_base = hashbase;
-        }
+        
 
         /// <summary>
         /// Generates rolling hash from a previously generated hash
@@ -38,19 +35,17 @@ namespace RabinKarpSearch
 
         public long GenerateHash(string s)
         {
-            if (String.IsNullOrEmpty(s))
-            {
-                return 0;
-            }
-
-            long hash = 0;
-
+         
+            long hash = 0;            
             // Treat the string from left to right.
             // The left most character is the most significant
             // whereas the right most is the least significant
-            for (int i = 0; i < s.Length; i++)
+            int sLen = s.Length;
+
+            m_powtables = new long[sLen];
+            for (int i = 0; i < sLen; i++)
             {
-                hash += BaseValue(s[i], s.Length - 1 - i);
+                hash += BaseValue(s[i], sLen - 1 - i);
             }
 
             return hash;
@@ -58,25 +53,40 @@ namespace RabinKarpSearch
 
         private long BaseValue(char c, int position)
         {
-            return (CharValue(c) * (long)Math.Pow(m_base, position));
+            return (CharValue(c) * Power(m_base, position));
+        }
+
+        private long Power(int x, int n)
+        {
+            long result = 1;
+            
+            if (m_powtables[n] != 0)
+                return m_powtables[n];
+
+            for (int i = 0; i < n; i++)
+            {
+                m_powtables[i] = result;
+                result *= x;                
+            }
+            return result;
         }
 
         private int CharValue(char c)
         {
             switch (c)
             {
-                case 'A':
+                
                 case 'a':
-                    return 1;
-                case 'C':
+                    return 0;
+                
                 case 'c':
-                    return 2;
-                case 'G':
+                    return 1;
+                
                 case 'g':
-                    return 3;
-                case 'T':
+                    return 2;
+                
                 case 't':
-                    return 4;
+                    return 3;
             }
 
             return -1000000;

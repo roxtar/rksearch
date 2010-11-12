@@ -6,34 +6,32 @@ using System.Text;
 namespace RabinKarpSearch
 {
     public class RkSearch
-    {
-        int m_base;
-        public RkSearch(int hashBase)
-        {
-            m_base = hashBase;
-        }
-
+    {               
         public RkSearch()
         {
-            m_base = 19;
+            
         }
 
         public int Search(string src, string substr)
         {
-            if (src.Length < substr.Length)
+            int srcLen = src.Length;
+            int subLen = substr.Length;
+            if (srcLen < subLen)
                 return -1;
 
-            RkSearchHash hash = new RkSearchHash(m_base);
+            RkSearchHash hash = new RkSearchHash();
             long target = hash.GenerateHash(substr);
-            long rolHash = hash.GenerateHash(src.Substring(0, substr.Length));
+            Console.WriteLine("Target hash: {0}", target);
+            long rolHash = hash.GenerateHash(src.Substring(0, subLen));
             int i = 0;
-            for (i = 0; i < src.Length - substr.Length; i++)
+            int limit = srcLen - subLen;
+            for (i = 0; i < limit; i++)
             {
                 if (rolHash == target)
                 {                    
                     return i;
                 }
-                rolHash = hash.GenerateRollingHash(src[i], src[i + substr.Length], rolHash, substr.Length);                
+                rolHash = hash.GenerateRollingHash(src[i], src[i + subLen], rolHash, subLen);                
             }
 
             // Avoid per loop comparison, of i + susbstr.Length

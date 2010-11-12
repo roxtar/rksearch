@@ -11,13 +11,13 @@ namespace RkSearchCompare
     {
         static void Main(string[] args)
         {
-            RkSearch rksearch = new RkSearch(4);
+            RkSearch rksearch = new RkSearch();
             SimpleSearch ssearch = new SimpleSearch();
 
             SeqGen gen = new SeqGen();
-            string src = gen.Generate(100000000);
+            string src = gen.Generate(2000000);
 
-            string sub = src.Substring(85000000, 50);
+            string sub = src.Substring(850001, 5000);
             int idx = 0;
 
             Console.WriteLine(src.Length);
