@@ -15,8 +15,8 @@ namespace RkSearchCompare
             SimpleSearch ssearch = new SimpleSearch();
             DumbSearch dsearch = new DumbSearch();
 
-            SeqGen gen = new SeqGen();
-            string src = gen.Generate(2000000);
+            SeqUtils gen = new SeqUtils();
+            string src = gen.GenerateSequence(2000000);
 
             string sub = src.Substring(850001, 5000);
             int idx = 0;            

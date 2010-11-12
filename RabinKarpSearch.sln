@@ -13,7 +13,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		TraceAndTestImpact.testsettings = TraceAndTestImpact.testsettings
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SequenceGenerator", "SequenceGenerator\SequenceGenerator.csproj", "{111FB32E-AF96-473A-9B74-540F1639E876}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Utilities", "SequenceGenerator\Utilities.csproj", "{111FB32E-AF96-473A-9B74-540F1639E876}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RkSearchCompare", "RkSearchCompare\RkSearchCompare.csproj", "{915320F4-C4CF-4B06-B4F5-E64418C02AB1}"
 EndProject

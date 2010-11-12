@@ -8,7 +8,7 @@
     <ProjectGuid>{111FB32E-AF96-473A-9B74-540F1639E876}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>SequenceGenerator</RootNamespace>
+    <RootNamespace>Utilities</RootNamespace>
     <AssemblyName>SequenceGenerator</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
@@ -58,7 +58,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="seqgen.cs" />
+    <Compile Include="sequtils.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

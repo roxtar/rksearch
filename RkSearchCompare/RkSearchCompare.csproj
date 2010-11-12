@@ -51,9 +51,9 @@
       <Project>{E2AEC2F9-EBCF-4067-9E4C-678321834C08}</Project>
       <Name>RabinKarpSearch</Name>
     </ProjectReference>
-    <ProjectReference Include="..\SequenceGenerator\SequenceGenerator.csproj">
+    <ProjectReference Include="..\SequenceGenerator\Utilities.csproj">
       <Project>{111FB32E-AF96-473A-9B74-540F1639E876}</Project>
-      <Name>SequenceGenerator</Name>
+      <Name>Utilities</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

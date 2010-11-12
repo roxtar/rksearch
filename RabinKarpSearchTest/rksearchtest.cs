@@ -40,8 +40,8 @@ namespace RabinKarpSearchTest
         [TestMethod]
         public void RkSearchRandomSequence()
         {
-            SeqGen gen = new SeqGen();
-            string src = gen.Generate(1000);
+            SeqUtils gen = new SeqUtils();
+            string src = gen.GenerateSequence(1000);
 
             // 13 is the  max limit due to size of long
             string sub = src.Substring(900, 23);

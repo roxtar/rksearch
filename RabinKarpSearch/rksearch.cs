@@ -42,6 +42,11 @@ namespace RabinKarpSearch
             return -1;
         }
 
+        public int SearchWithDiff(string src, string sub, int diff)
+        {
+            return -1;
+        }
+
         
     }
 }

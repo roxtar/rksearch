@@ -16,8 +16,8 @@ namespace RabinKarpSearchTest
             RkSearch rksearch = new RkSearch();
             SimpleSearch ssearch = new SimpleSearch();
 
-            SeqGen gen = new SeqGen();
-            string src = gen.Generate(1000);
+            SeqUtils gen = new SeqUtils();
+            string src = gen.GenerateSequence(1000);
 
             string sub = src.Substring(850, 15);
             int idx = 0;
