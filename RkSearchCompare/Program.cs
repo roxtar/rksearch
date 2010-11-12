@@ -13,6 +13,7 @@ namespace RkSearchCompare
         {
             RkSearch rksearch = new RkSearch();
             SimpleSearch ssearch = new SimpleSearch();
+            DumbSearch dsearch = new DumbSearch();
 
             SeqGen gen = new SeqGen();
             string src = gen.Generate(2000000);
@@ -20,7 +21,13 @@ namespace RkSearchCompare
             string sub = src.Substring(850001, 5000);
             int idx = 0;            
 
-            DateTime start, end;            
+            DateTime start, end;
+
+            start = DateTime.Now;
+            idx = dsearch.Search(src, sub);
+            end = DateTime.Now;
+            Console.WriteLine("Dumb Search Time: {0}ms", (end - start).TotalMilliseconds);
+            Console.WriteLine("Index: {0}", idx);
 
             start = DateTime.Now;
             idx = ssearch.Search(src, sub);
