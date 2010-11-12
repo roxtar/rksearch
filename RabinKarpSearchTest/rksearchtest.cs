@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using RabinKarpSearch;
+using SequenceGenerator;
 
 namespace RabinKarpSearchTest
 {
@@ -34,6 +35,20 @@ namespace RabinKarpSearchTest
             sub = "tttt";
             idx = search.Search(src, sub);
             Assert.IsTrue(idx < 0);
+        }
+
+        [TestMethod]
+        public void RkSearchRandomSequence()
+        {
+            SeqGen gen = new SeqGen();
+            string src = gen.Generate(1000);
+
+            // 13 is the  max limit due to size of long
+            string sub = src.Substring(900, 23);
+            RkSearch search = new RkSearch(5);
+            int idx = search.Search(src, sub);
+            Assert.IsTrue(idx > 0);
+            Assert.IsTrue(idx == 900);
         }
     }
 }

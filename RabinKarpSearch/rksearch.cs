@@ -7,12 +7,23 @@ namespace RabinKarpSearch
 {
     public class RkSearch
     {
+        int m_base;
+        public RkSearch(int hashBase)
+        {
+            m_base = hashBase;
+        }
+
+        public RkSearch()
+        {
+            m_base = 19;
+        }
+
         public int Search(string src, string substr)
         {
             if (src.Length < substr.Length)
                 return -1;
 
-            RkSearchHash hash = new RkSearchHash();
+            RkSearchHash hash = new RkSearchHash(m_base);
             long target = hash.GenerateHash(substr);
             long rolHash = hash.GenerateHash(src.Substring(0, substr.Length));
             int i = 0;
