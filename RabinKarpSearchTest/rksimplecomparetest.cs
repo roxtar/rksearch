@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using RabinKarpSearch;
-using SequenceGenerator;
+using Utilities;
 namespace RabinKarpSearchTest
 {
     [TestClass]
