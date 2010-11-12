@@ -9,10 +9,16 @@ namespace RabinKarpSearch
     {
         const int m_base = 4;
         long[] m_powtables;
+        int[] m_chartables;
+        
 
         public RkSearchHash()
         {
-                   
+            m_chartables = new int[Convert.ToInt32('t') + 1];
+            m_chartables[Convert.ToInt32('a')] = 0;
+            m_chartables[Convert.ToInt32('c')] = 1;
+            m_chartables[Convert.ToInt32('g')] = 2;
+            m_chartables[Convert.ToInt32('t')] = 3;
         }
         
 
@@ -43,6 +49,7 @@ namespace RabinKarpSearch
             int sLen = s.Length;
 
             m_powtables = new long[sLen];
+            GenPowers(sLen);
             for (int i = 0; i < sLen; i++)
             {
                 hash += BaseValue(s[i], sLen - 1 - i);
@@ -51,47 +58,19 @@ namespace RabinKarpSearch
             return hash;
         }
 
+        private void GenPowers(int len)
+        {
+            m_powtables[0] = 1;
+            for (int i = 1; i < len; i++)
+            {
+                m_powtables[i] = m_powtables[i - 1] * m_base;
+            }
+        }
+
         private long BaseValue(char c, int position)
         {
-            return (CharValue(c) * Power(m_base, position));
-        }
-
-        private long Power(int x, int n)
-        {
-            long result = 1;
-            
-            if (m_powtables[n] != 0)
-                return m_powtables[n];
-
-            for (int i = 0; i < n; i++)
-            {
-                m_powtables[i] = result;
-                result *= x;                
-            }
-            return result;
-        }
-
-        private int CharValue(char c)
-        {
-            switch (c)
-            {
-                
-                case 'a':
-                    return 0;
-                
-                case 'c':
-                    return 1;
-                
-                case 'g':
-                    return 2;
-                
-                case 't':
-                    return 3;
-            }
-
-            return -1000000;
-                       
-        }
+            return (m_chartables[Convert.ToInt32(c)] * m_powtables[position]);
+        }                
     
     }
 }

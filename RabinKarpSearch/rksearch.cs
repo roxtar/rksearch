@@ -20,8 +20,7 @@ namespace RabinKarpSearch
                 return -1;
 
             RkSearchHash hash = new RkSearchHash();
-            long target = hash.GenerateHash(substr);
-            Console.WriteLine("Target hash: {0}", target);
+            long target = hash.GenerateHash(substr);            
             long rolHash = hash.GenerateHash(src.Substring(0, subLen));
             int i = 0;
             int limit = srcLen - subLen;
@@ -42,5 +41,7 @@ namespace RabinKarpSearch
 
             return -1;
         }
+
+        
     }
 }

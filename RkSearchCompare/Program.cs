@@ -18,12 +18,9 @@ namespace RkSearchCompare
             string src = gen.Generate(2000000);
 
             string sub = src.Substring(850001, 5000);
-            int idx = 0;
+            int idx = 0;            
 
-            Console.WriteLine(src.Length);
-
-            DateTime start, end;
-
+            DateTime start, end;            
 
             start = DateTime.Now;
             idx = ssearch.Search(src, sub);
