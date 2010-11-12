@@ -1,0 +1,8 @@
+Simples search is not that bad. 
+O(1) > O(N) for large values of "1"
+Can't store strings of length 3 billion within "string" type, because string.length is of type int32
+Also trying to generate a string which is 2 billion characters long, leads to an OutOfMemoryException (#bigsurprise)
+RK Search does well for multiple strings
+Problems in initial implementation -- was taking 3 times the time as simple search
+Cuase Math.Pow, string.Length calls, base was arbitrarily set to 19. Made custom power. Improvement. But still took time. Lookup tables.
+RK search better for larger strings, but length is limited by int 64 precision
