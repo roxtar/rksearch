@@ -66,6 +66,12 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="simplesearch.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\SequenceGenerator\Utilities.csproj">
+      <Project>{111FB32E-AF96-473A-9B74-540F1639E876}</Project>
+      <Name>Utilities</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

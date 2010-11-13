@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using Utilities;
 
 namespace RabinKarpSearch
 {
@@ -44,7 +45,55 @@ namespace RabinKarpSearch
 
         public int SearchWithDiff(string src, string sub, int diff)
         {
+            int srcLen = src.Length;
+            int subLen = sub.Length;
+           
+
+            if (srcLen < subLen)
+                return -1;
+            RkSearchHash hash = new RkSearchHash();
+            long target = hash.GenerateHash(sub);
+            long rolHash = hash.GenerateHash(src.Substring(0, subLen));
+            int i = 0;
+            int limit = srcLen - subLen;            
+            int rolDiff = 0;
+            for (i = 0; i < limit; i++)
+            {
+                rolDiff = CountSetPairs((ulong)(target ^ rolHash));
+                if (rolDiff <= diff)
+                {                    
+                    return i;
+                }
+                rolHash = hash.GenerateRollingHash(src[i], src[i + subLen], rolHash, subLen);
+            }
+
+            rolDiff = CountSetPairs((ulong)(target ^ rolHash));
+            if (rolDiff <= diff)
+            {
+                return i;
+            }
             return -1;
+        }
+
+        private int CountSetPairs(ulong i)
+        {
+            int c = 0;
+            while (i != 0)
+            {
+                if ((i & 3) != 0)
+                    c++;
+                i >>= 2;
+            }
+            return c;
+        }
+
+        private int CountSetBits(ulong i)
+        {
+            // See http://stackoverflow.com/questions/2709430/count-number-of-bits-in-a-64-bit-long-big-integer
+            i = i - ((i >> 1) & 0x5555555555555555);
+            i = (i & 0x3333333333333333) + ((i >> 2) & 0x3333333333333333);
+            return (int) (((i + (i >> 4)) & 0xF0F0F0F0F0F0F0F) * 0x101010101010101) >> 56;
+
         }
 
         

@@ -50,5 +50,19 @@ namespace RabinKarpSearchTest
             Assert.IsTrue(idx > 0);
             Assert.IsTrue(idx == 900);
         }
+
+        [TestMethod]
+        public void RkSearchWithDiff()
+        {
+            SeqUtils util = new SeqUtils();
+            string src = util.GenerateSequence(1000);
+            string sub = src.Substring(900, 23);
+            RkSearch search = new RkSearch();
+            sub = util.InsertDiff(sub, 5);
+
+            int idx = search.SearchWithDiff(src, sub, 5);
+            Assert.IsTrue(idx > 0);
+
+        }
     }
 }
