@@ -75,7 +75,7 @@ namespace RabinKarpSearch
             return -1;
         }
 
-        private int CountSetPairs(ulong i)
+        public int CountSetPairs(ulong i)
         {
             int c = 0;
             while (i != 0)
@@ -94,6 +94,12 @@ namespace RabinKarpSearch
             i = (i & 0x3333333333333333) + ((i >> 2) & 0x3333333333333333);
             return (int) (((i + (i >> 4)) & 0xF0F0F0F0F0F0F0F) * 0x101010101010101) >> 56;
 
+        }
+
+        public int CountSetPairs2(ulong x)
+        {
+            x = (x - ((x >> 1) & 0x5555555555555555));
+            return CountSetBits(x);            
         }
 
         

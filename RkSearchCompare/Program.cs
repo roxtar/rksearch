@@ -16,33 +16,33 @@ namespace RkSearchCompare
             DumbSearch dsearch = new DumbSearch();
 
             SeqUtils gen = new SeqUtils();
-            string src = gen.GenerateSequence(2000000);
+            string src = gen.GenerateSequence(20000000);
 
-            string sub = src.Substring(850001, 25);
+            string sub = src.Substring(8500001, 25);
             int idx = 0;            
 
             DateTime start, end;
 
-            start = DateTime.Now;
-            idx = dsearch.Search(src, sub);
-            end = DateTime.Now;
-            Console.WriteLine("Dumb Search Time: {0}ms", (end - start).TotalMilliseconds);
-            Console.WriteLine("Index: {0}", idx);
+            //start = DateTime.Now;
+            //idx = dsearch.Search(src, sub);
+            //end = DateTime.Now;
+            //Console.WriteLine("Dumb Search Time: {0}ms", (end - start).TotalMilliseconds);
+            //Console.WriteLine("Index: {0}", idx);
 
-            start = DateTime.Now;
-            idx = ssearch.Search(src, sub);
-            end = DateTime.Now;
-            Console.WriteLine("Simple Search Time: {0}ms", (end - start).TotalMilliseconds);
-            Console.WriteLine("Index: {0}", idx);
+            //start = DateTime.Now;
+            //idx = ssearch.Search(src, sub);
+            //end = DateTime.Now;
+            //Console.WriteLine("Simple Search Time: {0}ms", (end - start).TotalMilliseconds);
+            //Console.WriteLine("Index: {0}", idx);
 
-            start = DateTime.Now;
-            idx = rksearch.Search(src, sub);
-            end = DateTime.Now;
-            Console.WriteLine("RK Search Time: {0}ms", (end - start).TotalMilliseconds);
-            Console.WriteLine("Index: {0}", idx);
+            //start = DateTime.Now;
+            //idx = rksearch.Search(src, sub);
+            //end = DateTime.Now;
+            //Console.WriteLine("RK Search Time: {0}ms", (end - start).TotalMilliseconds);
+            //Console.WriteLine("Index: {0}", idx);
 
             Console.WriteLine("Searching with differences");
-            int diff = 10;
+            int diff = 4;
             sub = gen.InsertDiff(sub, diff);
 
             start = DateTime.Now;

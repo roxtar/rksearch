@@ -64,5 +64,20 @@ namespace RabinKarpSearchTest
             Assert.IsTrue(idx > 0);
 
         }
+
+        [TestMethod]
+        public void RkSearchTestset()
+        {
+            RkSearch search = new RkSearch();
+            ulong x = 25223;
+            int c = search.CountSetPairs2(x);
+            Assert.AreEqual(c, 6);
+
+            x = 10578;
+            c = search.CountSetPairs2(x);
+            Assert.AreEqual(c, 6);
+        }
+
+        
     }
 }
