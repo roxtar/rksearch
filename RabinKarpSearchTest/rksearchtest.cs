@@ -66,6 +66,20 @@ namespace RabinKarpSearchTest
         }
 
         [TestMethod]
+        public void RkSearchTestSetMany()
+        {
+            RkSearch search = new RkSearch();
+            for (ulong i = ulong.MaxValue - 20000000; i > ulong.MaxValue - 4000; i--)
+            {
+                Console.WriteLine(i);
+                int c1 = search.CountSetPairs(i);
+                int c2 = search.CountSetPairs2(i);
+                Console.WriteLine("C1: {0} C2: {1}", c1, c2);
+                Assert.AreEqual(c1, c2);
+            }
+        }
+
+        [TestMethod]
         public void RkSearchTestset()
         {
             RkSearch search = new RkSearch();

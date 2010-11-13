@@ -16,9 +16,9 @@ namespace RkSearchCompare
             DumbSearch dsearch = new DumbSearch();
 
             SeqUtils gen = new SeqUtils();
-            string src = gen.GenerateSequence(20000000);
+            string src = gen.GenerateSequence(200000000);
 
-            string sub = src.Substring(8500001, 25);
+            string sub = src.Substring(85000001, 25);
             int idx = 0;            
 
             DateTime start, end;
