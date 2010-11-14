@@ -75,6 +75,38 @@ namespace RabinKarpSearch
             return -1;
         }
 
+        public List<int> SearchWithDiffAll(string src, string sub, int diff)
+        {
+            int srcLen = src.Length;
+            int subLen = sub.Length;
+            List<int> matches = new List<int>();
+
+            if (srcLen < subLen)
+                return matches;
+            RkSearchHash hash = new RkSearchHash();
+            long target = hash.GenerateHash(sub);
+            long rolHash = hash.GenerateHash(src.Substring(0, subLen));
+            int i = 0;
+            int limit = srcLen - subLen;
+            int rolDiff = 0;
+            for (i = 0; i < limit; i++)
+            {
+                rolDiff = CountSetPairs((ulong)(target ^ rolHash));
+                if (rolDiff <= diff)
+                {
+                    matches.Add(i);
+                }
+                rolHash = hash.GenerateRollingHash(src[i], src[i + subLen], rolHash, subLen);
+            }
+
+            rolDiff = CountSetPairs((ulong)(target ^ rolHash));
+            if (rolDiff <= diff)
+            {
+                matches.Add(i);
+            }
+            return matches;
+        }
+
         public int CountSetPairs2(ulong i)
         {
             int c = 0;
