@@ -19,25 +19,63 @@ namespace RkSearchCompare
         {
             RkSearch rksearch = new RkSearch();
             SeqUtils util = new SeqUtils();
+            SimpleSearch ssearch = new SimpleSearch();
             
             // We generate really large strings, which total up to 3 billion in the end. 
             // The substring which we are searching for is 27 characters in length
 
             string sub = util.GenerateSequence(27);
-            List<int> match = new List<int>();
-            DateTime start = DateTime.Now;
-            for (int i = 0; i < 3000; i++)
+            List<int> rkmatch = new List<int>();
+            List<int> ssmatch = new List<int>();
+            TimeSpan rkspan = TimeSpan.Zero, sspan = TimeSpan.Zero;
+            DateTime start, end;
+
+            for (int i = 0; i < 10; i++)
             {
-                string src = util.GenerateSequence(1000000);
-                match.AddRange(rksearch.SearchWithDiffAll(src,sub, 5));
-                src = null;
+                Console.WriteLine("Iteration {0}", i);
+                for (int j = 0; j < 3000; j++)
+                {
+                    string src = util.GenerateSequence(1000000);
+                    start = DateTime.Now;
+                    rkmatch.AddRange(rksearch.SearchWithDiffAll(src, sub, 5));
+                    end = DateTime.Now;
+
+                    rkspan += (end - start);
+
+                    start = DateTime.Now;
+                    ssmatch.AddRange(ssearch.SearchWithDiffAll(src, sub, 5));
+                    end = DateTime.Now;
+
+                    sspan += (end - start);
+
+                    src = null;
+                }
             }
-            DateTime end = DateTime.Now;
-            Console.WriteLine("Time taken: {0} s", (end-start).TotalSeconds);
-            for (int i = 0; i < match.Count; i++)
+            
+            Console.WriteLine("Rabin Karp Time taken: {0} s", rkspan.TotalSeconds);
+            for (int i = 0; i < rkmatch.Count; i++)
             {
-                Console.WriteLine(match[i]);
+                Console.WriteLine(rkmatch[i]);
             }
+
+            Console.WriteLine("Simple Search Time Taken: {0} s", sspan.TotalSeconds);
+            for (int i = 0; i < rkmatch.Count; i++)
+            {
+                Console.WriteLine(ssmatch[i]);
+            }
+            
+            bool equal = true;
+            for (int i = 0; i < rkmatch.Count; i++)
+            {
+                if (rkmatch[i] != ssmatch[i])
+                {
+                    equal = false;
+                    break;
+                }
+            }
+
+            Console.WriteLine("Rabin Karp and Simple Search matches are equal: {0}", equal);
+
         }
 
 
